@@ -1,0 +1,18 @@
+.postContainer {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.card-header{
+    display: flex;
+    background: white;
+}
+
+.card-header img{
+    height: 40px;
+    border-radius: 50%;
+}
+
+.card {
+    margin: 30px 0;
+}
