@@ -8,11 +8,50 @@
     background: white;
 }
 
+.card-header h2 {
+    margin-left: 10px;
+    font-size: 1rem;
+    margin-top: 7px;
+}
+
 .card-header img{
-    height: 40px;
+    height: 35px;
     border-radius: 50%;
 }
 
 .card {
     margin: 30px 0;
+}
+
+.card-img{
+    border-radius: 0;
+}
+
+.likes {
+    margin: 10px;
+}
+
+.likes p{
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.likes p i{
+    margin-right: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
+
+.comments {
+    margin: 10px;
+    margin-top: 0;
+    text-align: left;
+}
+
+.comment p{
+    margin: 0;
+    font-size: 0.8rem;
+}
+.comment p strong {
+    margin-right: 5px;
 }

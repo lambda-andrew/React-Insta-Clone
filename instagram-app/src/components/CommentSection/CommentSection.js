@@ -14,7 +14,7 @@ export default class CommentSection extends React.Component{
 
     render() {
         return (
-            <div>
+            <div className='comments'>
                 {this.state.comments.map(comment => {
                     return <Comment 
                         comment={comment}

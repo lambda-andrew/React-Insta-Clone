@@ -9,7 +9,7 @@ const PostLikes = props => {
                 <i className="far fa-comment"></i>
             </CardText>
             <CardText className='text-left'>
-                {props.likes} likes
+                <strong>{props.likes} likes</strong>
             </CardText>
         </div>
     );
