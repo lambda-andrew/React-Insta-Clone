@@ -55,3 +55,8 @@
 .comment p strong {
     margin-right: 5px;
 }
+
+.navbar-nav i {
+    margin: 0 20px;
+    font-size: 1.2rem;
+}

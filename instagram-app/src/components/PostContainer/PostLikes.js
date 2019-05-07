@@ -1,5 +1,6 @@
 import React from 'react';
 import { CardText } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 const PostLikes = props => {
     return (
@@ -13,6 +14,12 @@ const PostLikes = props => {
             </CardText>
         </div>
     );
+}
+
+PostLikes.propTypes = {
+    data: PropTypes.shape({
+        likes: PropTypes.number.isRequired
+    })
 }
 
 export default PostLikes;
