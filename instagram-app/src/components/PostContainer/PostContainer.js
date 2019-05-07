@@ -27,6 +27,7 @@ const PostContainer = (props) => {
 const Container = Styled.div `
    border: 1px solid gray;
    margin-bottom: 20px;
+   margin-top: 10px;
 
    input {
        border-top: 1px solid #808080;
@@ -37,6 +38,7 @@ const Container = Styled.div `
        width: 95%;
        font-size: .8rem;
        padding: 10px 0;
+       
 
        :focus {
            outline: none;
