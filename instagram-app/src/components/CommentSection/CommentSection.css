@@ -1,0 +1,7 @@
+.commentSect {
+  display: flex;
+  flex-flow: column wrap;
+  line-height: 1.5em;
+  justify-content: flex-start;
+  padding: .5em;
+}
