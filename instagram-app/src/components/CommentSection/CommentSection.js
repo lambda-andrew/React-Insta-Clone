@@ -4,7 +4,7 @@ import Comment from './Comment'
 const CommentSection = (props) => {
 console.log(props)
     return(
-         <div style={{border: "1px solid green"}}>
+         <div>
             {
                 props.dataContent.comments.map(comment => {
                     return (

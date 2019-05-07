@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import dummyData from './dummy-data';
 
+
 import PostContainer from './components/PostContainer/PostContainer';
 
 class App extends Component {
@@ -16,7 +17,7 @@ constructor(){
 
   render() {
     return (
-      <div className="App" >
+      <div className="App" style={{width: "600px", margin: "0 auto"}} >
          {
            this.state.dummyData.map(dataContent => {
               return (<PostContainer  dataContent={dataContent} key={dataContent.timestamp}/>)
@@ -27,4 +28,8 @@ constructor(){
     }
 }
 
+
+
+
 export default App;
+
