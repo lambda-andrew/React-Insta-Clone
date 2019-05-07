@@ -6,7 +6,7 @@ const PostLikes = props => {
     return (
         <div className='likes'>
             <CardText className='text-left'>
-                <i className="far fa-heart"></i>
+                <i onClick={props.addLike} className="far fa-heart"></i>
                 <i className="far fa-comment"></i>
             </CardText>
             <CardText className='text-left'>

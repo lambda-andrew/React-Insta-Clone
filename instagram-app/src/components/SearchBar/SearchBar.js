@@ -9,19 +9,20 @@ import {
 } from 'reactstrap';
 
 export default class SearchBar extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            search: ''
-        }
-    }
 
     render() {
         return (
             <div className='searchBar'>
                 <Navbar light expand="md">
                     <NavbarBrand><i className="fab fa-instagram"></i> | Instagram</NavbarBrand>
-                    <Input placeholder='Search' />
+                    <form onSubmit={this.props.search}>
+                    <Input 
+                        placeholder='Search' 
+                        value={this.props.data}
+                        onChange={this.props.changes}
+                    />
+                    </form>
+                    
                     <Nav className='ml-auto' navbar>
                         <NavItem><i className="far fa-compass"></i></NavItem>
                         <NavItem><i className="far fa-heart"></i></NavItem>

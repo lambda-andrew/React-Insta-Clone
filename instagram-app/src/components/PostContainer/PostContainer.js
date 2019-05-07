@@ -7,12 +7,16 @@ import PostLikes from './PostLikes';
 import CommentSection from '../CommentSection/CommentSection';
 
 export default class PostContainer extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            
-        }
+    state = {
+        likes: this.props.data.likes
     }
+
+    addLikes = () => {
+        this.setState({
+            likes: this.state.likes + 1
+        })
+        console.log('clicked');
+    } 
 
     render() {
         return(
@@ -26,7 +30,8 @@ export default class PostContainer extends React.Component {
                         image={this.props.data.imageUrl}
                     />
                     <PostLikes 
-                        likes={this.props.data.likes}
+                        likes={this.state.likes}
+                        addLike={this.addLikes}
                     />
                     <CommentSection 
                         comments={this.props.data.comments}
