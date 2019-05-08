@@ -1,91 +1,113 @@
 import React, {Component} from 'react';
-import Comment from './Comment'
+import Comment from './Comment';
+import PropTypes from 'prop-types';
+import moment from 'moment';
 import Styled from 'styled-components';
 
+
 class CommentSection extends Component {
+    
+    constructor(props) {
+        super();
+        this.state = {
+            comments: '',
+            commentsArray: props.comments
+        }
+    }
 
- constructor(props){
-    super(props);
+   
+   
+    addNewComment = (e) => {
+        e.preventDefault();
+        const newArr = [...this.state.commentsArray, {text: this.state.comments, username: 'David'}]
+        this.setState({
+            commentsArray: newArr,
+            comments: ''
+        })
+    }
 
-    this.state = {
-        comments: '',   // takes in new comment
-        allComments: this.props.dataContent.comments  // data is passed from PostContainer.  That's why dataContent
+    handleChange = (e) => {
+        this.setState({
+            comments: e.target.value
+        })
+    }
+
+    render() {
+        
+        return (
+            
+            <div>
+                <div>
+                    {this.state.commentsArray.map((userCom, index) => {
+                        return (
+                            <div key={index}>
+                                <Comment user={userCom.username} textPost={userCom.text}/>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <CardTimeStamp>{moment().startOf('hour').fromNow()}</CardTimeStamp>
+
+                <form onSubmit={this.addNewComment}>
+                    <CommentInput 
+                        type="text"
+                        placeholder="Add a comment..."
+                        onChange={this.handleChange} value={this.state.comments}
+                     />
+                </form>
+            </div>
+        )
     }
 }
 
 
-// creates copy of array, adds new text and username info, then updates state
-addNewComment = (e) => {
-    e.preventDefault();
-    const newArray = [...this.state.allComments, {text: this.state.comments, username: 'David'}] 
-
-    this.setState({
-        allComments: newArray,
-        comments: ''
-    })
-}
-
-handleChange = (e) => {
-  this.setState({
-    comments: e.target.value // takes value from input
-  })
-}
-
-
- render() {
-    console.log(this.state.comments);
-
-    return(
-        
-         <div>
-            {   // make sure to map through the updated allComments array
-                this.state.allComments.map(comment => {
-                    return (
-                        <div key={comment.text}>
-                            <Comment comment={comment}  />
-                        </div>
-                       
-                    )
-                })
-            }
-            <CommentInput>   
-               <CommentTime>{this.props.dataContent.timestamp}</CommentTime>
-               <form onSubmit={this.addNewComment}>
-                   <input type="text" 
-                          placeholder="Add a comment..."
-                          onChange={this.handleChange}
-                          value={this.state.comment}
-                          />
-               </form>
-            </CommentInput>
-         </div>
-    )
-  }
-}
-
-
-const CommentTime = Styled.p `
-  font-size: .6rem;
-  margin-left: 12px;
-  color: #808080;
-  padding-top: 12px;
-  padding-bottom: 10px;
+const CardTimeStamp = Styled.p `
+    margin-left: 16px;
+    margin-top: 12px;
+    color: #808080;
 `
-
-const CommentInput = Styled.div `
-input {
+const CommentInput = Styled.input `
+    margin-left: 16px;
+    width: 90%;
+    font-size: 1.4rem;
     border-top: 1px solid #808080;
-    border-right: 0;
-    border-bottom: 0;
-    border-left: 0;
-    margin-left: 12px;
-    width: 95%;
-    font-size: .8rem;
-    padding: 10px 0;
-    
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    margin-top: 12px;
+    padding: 50x;
+    // text-indent: 10px;
+    padding: 10px 0 20px 0;
 
-    :focus {
+    &:focus {
         outline: none;
     }
 `
+
+CommentSection.propTypes = {
+   comments: PropTypes.arrayOf(
+    PropTypes.shape({
+        text: PropTypes.string,
+        username: PropTypes.string
+    })
+   ),
+   dummyData: PropTypes.arrayOf(
+       PropTypes.shape({
+           imageUrl: PropTypes.string,
+           likes: PropTypes.number,
+           thumbnailUrl: PropTypes.string,
+           timestamp: PropTypes.string,
+           username: PropTypes.string,
+           comments: PropTypes.arrayOf(
+            PropTypes.shape({
+               username: PropTypes.string,
+               text: PropTypes.string
+          })
+       )
+     })
+   )
+}
+
 export default CommentSection;
+

@@ -1,31 +1,30 @@
 import React from 'react';
-import Styled from 'styled-components'
-const Comment = (props) => {
-  
-  return (
-      <CommentWrapper>
-        <CommentUser>{props.comment.username}</CommentUser>
-         <CommentPost>{props.comment.text}</CommentPost>
-      </CommentWrapper>
-  )
+import Styled from 'styled-components';
+import PropTypes from 'prop-types';
+
+const Comment = ({user, textPost}) => {
+   
+   return (
+     <Comments >
+        <p><span>{user}</span>   {textPost}</p>
+     </Comments>
+   )
 }
 
-
-const CommentWrapper = Styled.div `
-     display:flex;
-     margin-left: 12px;
+const Comments = Styled.div `
+   pading: 5px 0px;
+   p {
+      font-size: .8rem;
+      line-height: 26px;
+   }
+   span {
+      font-size: .8rem;
+   }
 `
 
-const CommentUser = Styled.p `
-    font-weight: bolder;
-    font-size: .8rem;
-    padding-right: 10px;
-    line-height: 24px;
-`
-
-const CommentPost = Styled.p `
-    font-size: .8rem;
-    line-height: 24px;
-`
+Comment.propTypes = {
+   user: PropTypes.string,
+   textPost: PropTypes.string
+}
 
 export default Comment;

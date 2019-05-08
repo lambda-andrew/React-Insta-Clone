@@ -2,39 +2,28 @@ import React, {Component} from 'react';
 import Styled from 'styled-components';
 
 class PostLikes extends Component {
-  render(){
-      return(
+
+    state = {
+        likes: this.props.postLike
+    }
+
+    render(){
+        const {postLike} = this.props;
+
+        return (
             <div>
-                 <LikeIcons>
-                    <i className="far fa-heart"></i>
-                    <i className="far fa-comment"></i>
-                 </LikeIcons>
-                <LikeCounts>{this.props.dataLikes}</LikeCounts>
+                <CardLikes>
+                    <p>{postLike} likes</p>
+                </CardLikes>
             </div>
-      )
-   }
+        )
+    }
 }
 
-const LikeIcons = Styled.div `
-    display: flex;
-     
-
-    .far {
-        font-size: 1.2rem;
-        font-weight: 100;
-        color: #333;
-        margin-left: 10px;
-        margin-top: 15px;
-        margin-bottom: 10px;
-    }
-    .fa-heart {
-        margin-right: 10px;
-    }
-`
-
-const LikeCounts = Styled.p `
-    margin-left: 10px;
-    margin-bottom: 8px;
+const CardLikes = Styled.div `
+    margin-top: -10px;
+    margin-left: 16px;
+    padding-bottom: 12px;
 `
 
 export default PostLikes;

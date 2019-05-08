@@ -1,80 +1,69 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Styled from 'styled-components';
 
-class SearchBar extends React.Component{
-    render() {
-    return(
-        <SearchContainer>
-             <SearchHome>
-                <a href="#"><i className="fab fa-instagram"></i></a>
-                <div>|</div>
-                <h3>Instagram</h3>
-             </SearchHome>
+class SearchBar extends Component {
 
-             <SearchInput>
-                <input type="text" placeholder="Search" onChange={this.props.handleSearch}/>
-             </SearchInput>
+    render(){
 
-             <SearchIcons>
-                  <a href=""><i className="far fa-dot-circle"></i></a>
-                  <a href=""> <i className="far fa-heart"></i></a>
-                  <a href=""><i className="far fa-user"></i></a>
-             </SearchIcons>
-        </SearchContainer>
-    )
+        return(
+            <Search>
+                <SearchIcons>
+                    <SearchIcon href="https://instagram.com"><i className="fab fa-instagram"></i></SearchIcon>
+                    <SearchBreak>|</SearchBreak>
+                    <SearchTitle>Instagram</SearchTitle>
+                </SearchIcons>
+                <div>
+                    <SearchInput onChange={this.props.handleSearch} type="text" placeholder="Search"/>
+                </div>
+                <SearchIcons>
+                    <SearchIcon href="http://google.com"><i className="far fa-dot-circle"></i></SearchIcon>
+                    <SearchIcon href="http://google.com"><i className="far fa-heart"></i></SearchIcon>
+                    <SearchIcon href="http://google.com"><i className="far fa-user"></i></SearchIcon>
+                </SearchIcons>
+            </Search>
+        )
     }
 }
 
-const SearchContainer = Styled.div `
-  display: flex;
-  justify-content: space-between;
 
-  align-items: center;
-  height: 60px;
-
-`
-const SearchHome = Styled.div `
+const Search = Styled.div `
+    position: fixed;
+    width: 100%;
+    height: 100px;
     display: flex;
-
-    a {
-        font-size: 1.5rem;
-    }
-     div {
-         font-size: 1.3rem;
-         font-weight: 300;
-         padding: 0 8px;
-         margin-top: 3px;
-     }
-     h3 {
-        font-family: 'Quintessential', cursive;
-     }
-
-     .fab {
-         color: #333;
-         margin-top: 4px;
-     }
+    justify-content: space-around;
+    z-index: 10;
+    background: white;
+    border-bottom: 1px solid lightgray;
+    align-items: center;
 `
-const SearchInput = Styled.div `
-     input {
-         width: 200px;
-         font-size: 1.3rem;
-         border-radius: 5px;
-         border: 1px solid #ccc;
-         text-align: center;
-     }
-
-`
-
 const SearchIcons = Styled.div `
     display: flex;
+`
+const SearchIcon = Styled.a `
+    font-size: 2.4rem;
+    color: #333;
 
-    .far {
-        font-size: 1.3rem;
-        color: #333;
-    }
     .fa-heart {
         padding: 0 10px;
     }
 `
-
+const SearchTitle = Styled.h2 `
+    font-family: 'Statisfy', cursive;
+`
+const SearchInput = Styled.input `
+    width: 300px;
+    font-size: 2rem;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    text-align: center;
+    &:focus {
+        outline: none;
+    }
+`
+const SearchBreak = Styled.p `
+    font-size: 2rem;
+    padding: 0px 10px;
+`
 export default SearchBar;
+
