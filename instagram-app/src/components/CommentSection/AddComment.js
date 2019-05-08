@@ -3,7 +3,7 @@ import { Form, FormGroup, Input } from 'reactstrap';
 
 const AddComment = props => {
     return(
-        <Form onSubmit={props.addNewComment}>
+        <Form className='addCommentForm' onSubmit={props.addNewComment}>
             <FormGroup>
                 <Input 
                     name= 'text'

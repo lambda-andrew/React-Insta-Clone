@@ -1,58 +1,19 @@
 import React from 'react';
+import PostPage from './components/PostContainer/PostPage';
+import Login from './components/Login/Login';
+import withAuthenticate from './authentication/withAuthenticate';
 import './App.css';
-import dummyData from './dummy-data';
-import PostContainer from './components/PostContainer/PostContainer';
-import SearchBar from './components/SearchBar/SearchBar';
 
+const ComponentFromWithAuthenticate = withAuthenticate(PostPage)(Login);
  
-class App extends React.Component {
-  state = {
-      data: [],
-      search: ''
-  }
-
-  componentDidMount() {
-    this.setState({
-      data: dummyData
-    })
-  }
-
-  handleChanges = e => {
-    this.setState({
-        search: e.target.value
-    })
-  }
-
-  search = e => {
-    e.preventDefault();
-    const filter = this.state.data.filter( data => {
-      return data.username === this.state.search;
-    })
-    if(this.state.search === '') {
-      this.setState({
-        data: dummyData
-      })
-    } else {
-      this.setState({
-        data: filter
-      })
-    }
-  }
-
+export default class App extends React.Component {
+  
   render() {
     return(
       <div className='App'>
-        <SearchBar 
-          data={this.state.search}
-          changes={this.handleChanges}
-          search={this.search}
-        />
-        {this.state.data.map(item => {
-          return <PostContainer data={item} key={item.timestamp}/>
-        })}
+        <ComponentFromWithAuthenticate />
       </div>
     );
   }
 }
 
-export default App;

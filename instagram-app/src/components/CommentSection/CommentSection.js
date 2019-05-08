@@ -2,12 +2,10 @@ import React from 'react';
 import './CommentSection.css';
 import Comment from './Comment';
 import AddComment from './AddComment';
-// import { Form, FormGroup, Input } from 'reactstrap';
-
 
 export default class CommentSection extends React.Component{
     state = {
-        comments: this.props.comments,
+        comments: this.props.data.comments,
         comment: {
             username: '',
             text: ''
@@ -15,6 +13,7 @@ export default class CommentSection extends React.Component{
     }
 
     newComment = e => {
+        e.preventDefault();
         this.setState({
             comment: {
                 [e.target.name]: e.target.value
@@ -37,6 +36,11 @@ export default class CommentSection extends React.Component{
         })
     }
 
+    toggleClass = () => {
+        let heart = document.querySelector('.card-text');
+        heart.classList.toggle('green');
+    }
+
     render() {
         return (
             <div className='comments'>
@@ -50,17 +54,19 @@ export default class CommentSection extends React.Component{
                         </div>
                     );
                 })}
-                <AddComment 
-                    addNewComment={this.addNewComment}
-                    newComment={this.newComment}
-                    data={this.state.comment}
-                    key={this.state.comment}
-                />
-                <button>
-                    <span>
-                        <i className="fas fa-ellipsis-h"></i>
-                    </span>    
-                </button> 
+                <div className='addComment'>
+                    <AddComment 
+                        addNewComment={this.addNewComment}
+                        newComment={this.newComment}
+                        data={this.state.comment}
+                        key={this.state.comment}
+                    />
+                    <button onClick={this.toggleClass}>
+                        <span>
+                            <i className="fas fa-ellipsis-h"></i>
+                        </span>    
+                    </button> 
+                </div>
             </div>
         );
     }

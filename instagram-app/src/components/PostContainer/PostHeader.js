@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 const PostHeader = props => {
     return (
         <CardHeader>
-            <img src={props.thumbnail} alt='thumbnail of user' />
-            <h2>{props.user}</h2>     
+            <img src={props.data.thumbnailUrl} alt='thumbnail of user' />
+            <h2>{props.data.username}</h2>     
         </CardHeader>
     );
 }
@@ -16,6 +16,10 @@ PostHeader.propTypes = {
         username: PropTypes.string.isRequired,
         thumbnailUrl: PropTypes.string.isRequired
     })
+}
+
+PostHeader.defaultProps = {
+    data: {}
 }
 
 export default PostHeader;

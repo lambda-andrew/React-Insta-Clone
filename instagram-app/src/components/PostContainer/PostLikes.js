@@ -10,16 +10,18 @@ const PostLikes = props => {
                 <i className="far fa-comment"></i>
             </CardText>
             <CardText className='text-left'>
-                <strong>{props.likes} likes</strong>
+                <strong>{props.data} likes</strong>
             </CardText>
         </div>
     );
 }
 
 PostLikes.propTypes = {
-    data: PropTypes.shape({
-        likes: PropTypes.number.isRequired
-    })
+    data: PropTypes.number.isRequired
+}
+
+PostLikes.defaultProps = {
+    data: {}
 }
 
 export default PostLikes;

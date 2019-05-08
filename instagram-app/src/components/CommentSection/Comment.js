@@ -19,5 +19,8 @@ Comment.propTypes = {
         })
 }
 
+Comment.defaultProps = {
+    comment: {}
+}
 
 export default Comment;

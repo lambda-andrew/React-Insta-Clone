@@ -15,7 +15,6 @@ export default class PostContainer extends React.Component {
         this.setState({
             likes: this.state.likes + 1
         })
-        console.log('clicked');
     } 
 
     render() {
@@ -23,18 +22,17 @@ export default class PostContainer extends React.Component {
             <div className='postContainer'>
                 <Card>
                     <PostHeader 
-                        user={this.props.data.username}
-                        thumbnail={this.props.data.thumbnailUrl} 
+                        data={this.props.data}
                     />
                     <PostImage 
-                        image={this.props.data.imageUrl}
+                        data={this.props.data}
                     />
                     <PostLikes 
-                        likes={this.state.likes}
+                        data={this.state.likes}
                         addLike={this.addLikes}
                     />
                     <CommentSection 
-                        comments={this.props.data.comments}
+                        data={this.props.data}
                     />
                 </Card>
             </div>

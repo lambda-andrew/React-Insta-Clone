@@ -61,10 +61,6 @@
     font-size: 1.2rem;
 }
 
-.addComment input {
-    width: 70%;
-}
-
 .fa-heart {
     cursor: pointer;
     
