@@ -16,33 +16,34 @@ const PostContainer = (props) => {
             <img src={props.dataContent.imageUrl} alt=""/>
         </ContainerImage>
         <PostLikes dataLikes={props.dataContent.likes}/>
-        <CommentSection dataContent={props.dataContent} />
+        
+        <CommentSection dataContent={props.dataContent}/>
        
-        <ContainerTime>2 hours ago</ContainerTime>
-        <input type="text" placeholder="Add a comment..."/>
+        {/* <ContainerTime>2 hours ago</ContainerTime> */}
+        {/* <input type="text" placeholder="Add a comment..."/> */}
     </Container>
     )
 }
 
 const Container = Styled.div `
-   border: 1px solid gray;
+   border: 1px solid #808080;
    margin-bottom: 20px;
    margin-top: 10px;
 
-   input {
-       border-top: 1px solid #808080;
-       border-right: 0;
-       border-bottom: 0;
-       border-left: 0;
-       margin-left: 12px;
-       width: 95%;
-       font-size: .8rem;
-       padding: 10px 0;
+//    input {
+//        border-top: 1px solid #808080;
+//        border-right: 0;
+//        border-bottom: 0;
+//        border-left: 0;
+//        margin-left: 12px;
+//        width: 95%;
+//        font-size: .8rem;
+//        padding: 10px 0;
        
 
-       :focus {
-           outline: none;
-       }
+//        :focus {
+//            outline: none;
+//        }
    }
 `
 
@@ -65,12 +66,12 @@ const ContainerImage = Styled.div `
         width: 600px
     }
 `
-const ContainerTime = Styled.p `
-  font-size: .6rem;
-  margin-left: 12px;
-  color: #808080;
-  padding-top: 12px;
-  padding-bottom: 10px;
-`
+// const ContainerTime = Styled.p `
+//   font-size: .6rem;
+//   margin-left: 12px;
+//   color: #808080;
+//   padding-top: 12px;
+//   padding-bottom: 10px;
+// `
 
 export default PostContainer; 

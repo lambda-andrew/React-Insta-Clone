@@ -15,6 +15,14 @@ constructor(){
    }
 }
 
+
+componentDidMount(){
+   this.setState({
+     dummyData: dummyData
+   })
+}
+
+
   render() {
     return (
       <div className="App" style={{width: "600px", margin: "0 auto"}} >

@@ -1,26 +1,28 @@
 import React from 'react';
 import Styled from 'styled-components';
 
-const SearchBar = () => {
+class SearchBar extends React.Component{
+    render() {
     return(
         <SearchContainer>
              <SearchHome>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i className="fab fa-instagram"></i></a>
                 <div>|</div>
                 <h3>Instagram</h3>
              </SearchHome>
 
              <SearchInput>
-                <input type="text" placeholder="Search"/>
+                <input type="text" placeholder="Search" onChange={this.props.handleSearch}/>
              </SearchInput>
 
              <SearchIcons>
-                  <a href=""><i class="far fa-dot-circle"></i></a>
-                  <a href=""> <i class="far fa-heart"></i></a>
-                  <a href=""><i class="far fa-user"></i></a>
+                  <a href=""><i className="far fa-dot-circle"></i></a>
+                  <a href=""> <i className="far fa-heart"></i></a>
+                  <a href=""><i className="far fa-user"></i></a>
              </SearchIcons>
         </SearchContainer>
     )
+    }
 }
 
 const SearchContainer = Styled.div `
