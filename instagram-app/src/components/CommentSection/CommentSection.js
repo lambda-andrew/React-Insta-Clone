@@ -24,7 +24,7 @@ export default class CommentSection extends React.Component{
     addNewComment = e => {
         e.preventDefault();
         const newComment = {
-            username: 'dbarrios95',
+            username: localStorage.getItem('username'),
             text: this.state.comment.text
         }
         this.setState({
