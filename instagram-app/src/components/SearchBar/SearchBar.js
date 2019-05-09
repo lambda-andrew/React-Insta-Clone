@@ -1,5 +1,4 @@
 import React from 'react';
-import './SearchBar.css';
 import {
     Input,
     Navbar,
@@ -8,28 +7,58 @@ import {
     NavItem,
 } from 'reactstrap';
 
-export default class SearchBar extends React.Component {
+import styled from 'styled-components';
 
-    render() {
-        return (
-            <div className='searchBar'>
-                <Navbar light expand="md">
+function SearchBar (props) {
+    return (
+        <Header>
+            <Navbar light expand="md">
+                <LogoHeader>
                     <NavbarBrand><i className="fab fa-instagram"></i> | Instagram</NavbarBrand>
-                    <form onSubmit={this.props.search}>
-                    <Input 
-                        placeholder='Search' 
-                        value={this.props.data}
-                        onChange={this.props.changes}
-                    />
+                </LogoHeader>
+                <Searchbar>
+                    <form onSubmit={props.search}>
+                        <Input 
+                            placeholder='Search' 
+                            value={props.data}
+                            onChange={props.changes}
+                        />
                     </form>
-                    
-                    <Nav className='ml-auto' navbar>
-                        <NavItem><i className="far fa-compass"></i></NavItem>
-                        <NavItem><i className="far fa-heart"></i></NavItem>
-                        <NavItem><i className="far fa-user"></i></NavItem>
-                    </Nav>
-                </Navbar>
-            </div>
-        );
-    }
+                </Searchbar>
+                <Nav className='ml-auto' navbar>
+                    <NavItem><i className="far fa-compass"></i></NavItem>
+                    <NavItem><i className="far fa-heart"></i></NavItem>
+                    <NavItem><i className="far fa-user"></i></NavItem>
+                </Nav>
+            </Navbar>
+        </Header>
+    );
 }
+
+const Searchbar = styled.div`
+    input{
+        width: 300px;
+        text-align: center;
+    }
+`
+
+const Header = styled.header`
+    @media (min-width: 768px){
+        .navbar-expand-md {
+            flex-flow: row nowrap;
+            justify-content: space-evenly;
+        }
+    }
+    .navbar {
+        border-bottom: 1px solid lightgray;
+        background: #fff;
+    }   
+    .ml-auto{
+        margin-left: 0 !important;
+    }
+`
+
+const LogoHeader = styled.div`
+
+`
+export default SearchBar;

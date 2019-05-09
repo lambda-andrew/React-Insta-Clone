@@ -8,17 +8,6 @@
     background: white;
 }
 
-.card-header h2 {
-    margin-left: 10px;
-    font-size: 1rem;
-    margin-top: 7px;
-}
-
-.card-header img{
-    height: 35px;
-    border-radius: 50%;
-}
-
 .card {
     margin: 30px 0;
 }
